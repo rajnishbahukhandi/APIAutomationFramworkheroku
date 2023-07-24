@@ -1,0 +1,5 @@
+.idea
+.DS_STORE
+Test_scripts/.pytest_cache
+TestScriptsExecution/.pytest_cache
+venv
