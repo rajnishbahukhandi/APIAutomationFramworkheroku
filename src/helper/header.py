@@ -1,4 +1,4 @@
-# from Test_scripts.Authtoken import put_AuthToken_repos
+# from TestScriptsExecution.test_integration_ts2 import Test_APIBookings
 
 
 def common_header():
@@ -9,17 +9,12 @@ def common_header():
     return headers
 
 
-
-
-# def tokenHeader_json(tokenid):
+# def common_tokenHeader():
 #     # Pass the token into the headers.
+#     token_id1 = Test_APIBookings.static_var_Token
 #     headers_json = {
 #         'Content-Type': 'application/json',
 #         'Accept': 'application/json',
-#         'Cookie': 'token={0}'.format(tokenid)
+#         'Cookie': 'token={0}'.format(token_id1)
 #     }
-#
 #     return headers_json
-#
-#
-# tokenHeader_json(put_AuthToken_repos)

@@ -1,12 +1,12 @@
 import requests
-from src.helper.jsondata import generate_testdata
-from src.helper.headerdata import common_header
+from src.helper.json import payloadTestdata
+from src.helper.header import common_header
 from src.URL.URLs import url_base, url_endpoint, url_booking_endpoint
 
 
 # Here, create the new booking data and confirm the booking id collected from the create api.
 def post_CreateBooking_repos():
-    response = requests.post(f"{url_base()}{url_endpoint()}", headers=common_header(), data=generate_testdata())
+    response = requests.post(f"{url_base()}{url_endpoint()}", headers=common_header(), data=payloadTestdata())
     print(response.json())
 
     # Collect the booking id from json.
