@@ -1,7 +1,7 @@
-from Test_scripts.Authtoken import put_AuthToken_repos, verify_key
-from Test_scripts.CreateBooking import post_CreateBooking_repos, get_BookingIDs
-from Test_scripts.DeletetheBooking import delete_Booking
-from Test_scripts.UpdateBooking import put_UpdateBookingBasedOnBookingId_repos
+from Test_scripts.Singlescripts.Authtoken import put_AuthToken_repos, verify_key
+from Test_scripts.Singlescripts.CreateBooking import post_CreateBooking_repos, get_BookingIDs
+from Test_scripts.Singlescripts.DeletetheBooking import delete_Booking
+from Test_scripts.Singlescripts.UpdateBooking import put_UpdateBookingBasedOnBookingId_repos
 
 
 def test_01_Integration_UpdatingBookingDataWithUpdatingBookingid():
