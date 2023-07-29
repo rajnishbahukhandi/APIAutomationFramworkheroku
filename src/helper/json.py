@@ -1,14 +1,12 @@
-import json
-
-
 # from faker import Faker
 # fake = Faker()
 
+
 def payloadAuthentication():
-    payload = json.dumps({
-        "username": "admin",
-        "password": "password123"
-    })
+    payload = {
+            "username": "admin",
+            "password": "password123"
+            }
     return payload
 
 

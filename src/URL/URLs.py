@@ -1,4 +1,11 @@
 # Set the base URL for the API
+
+# Set the authentication endpoint
+def url_auth_endpoint():
+    url = "/auth"
+    return url
+
+
 def url_base():
     url = "https://restful-booker.herokuapp.com"
     return url

@@ -1,3 +1,5 @@
+import json
+
 import requests
 from src.URL.URLs import url_base, url_auth_endpoint
 from src.helper.header import common_header
@@ -8,7 +10,7 @@ from src.helper.json import payloadAuthentication
 def put_AuthToken_repos():
     # pass the booking id into parameter from post_CreateBooking_repos at CreateBooking.py
     # Generate the token form Authentication API
-    res = requests.post(f"{url_base()}{url_auth_endpoint()}", headers=common_header(), data=payloadAuthentication())
+    res = requests.post(f"{url_base()}{url_auth_endpoint()}", headers=common_header(), data=json.dumps(payloadAuthentication()))
     # Store token into tokenid variable.
     tokenid = res.json()['token']
     print("Token id is:- ", tokenid)

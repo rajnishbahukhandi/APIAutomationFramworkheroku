@@ -1,6 +1,5 @@
 import json
 import requests
-from IPython.core import payload
 
 
 # Abstraction and encapsulation.
@@ -8,15 +7,8 @@ from IPython.core import payload
 def authToken_response(url, headers, payload):
     # pass the booking id into parameter from post_CreateBooking_repos at CreateBooking.py
     # Generate the token form Authentication API
-    auth_response = requests.post(url=url, headers=headers, data=payload)
+    auth_response = requests.post(url=url, headers=headers, data=json.dumps(payload))
     return auth_response
-    # if in_json is True:
-    #     # Store token into tokenid variable.
-    #     # tokenid = auth_response.json()['token']
-    #     # # print("Token id is:- ", tokenid)
-    #     # return tokenid
-    #     return auth_response.json()
-    # return auth_response
 
 
 def get_response(url, auth, headers, in_json):
