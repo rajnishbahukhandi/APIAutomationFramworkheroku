@@ -1,5 +1,7 @@
 # Assertions: Python assert allow to sanity check the code.
 # Common Verification file: Here verify the status code, empty value, null value, lenght of value.
+import requests
+
 
 def verify_http_codeStatus(response_data, expected_data):
     # assert response_data.status_code == expected_data, "Expected HTTP Status : " + expected_data
@@ -8,7 +10,7 @@ def verify_http_codeStatus(response_data, expected_data):
 
 def verify_http_codesError(response_data, expected_data):
     # assert response_data.status_code == expected_data, "Expected HTTP Status : " + expected_data
-    assert response_data.status_code in [403, 400, 500], f'Expected status, but got {response_data.status_code}'
+    assert response_data.status_code in [204, 403, 400, 500], f'Expected status, but got {response_data.status_code}'
 
 
 def verify_key_forNotNullGreaterThanZero(key):

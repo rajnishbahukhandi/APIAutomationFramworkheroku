@@ -6,6 +6,8 @@ from src.helper.commonVerifications import *
 from Test_scripts.Wrappedscripts.API_wrapper import post_response
 
 
+# The testcase will be written by the user to use the Wrappedscripts file from Test_Scripts and the Helper file.
+
 class Test_APIBookings:
     # Make the static variable for id and token. Static variable is shared among all instances of a class,
     # rather than being unique to each instance.
@@ -31,7 +33,7 @@ class Test_APIBookings:
 
     def test_create_booking_TC2(self):
         response = post_response(f"{url_base()}{url_endpoint()}", auth=None, headers=common_header(),
-                                 payload=payloadTestdata(), in_json=False)
+                                 payload=payloadTestdata_faker_post_put(), in_json=False)
         booking_id = response.json()["bookingid"]
         # Assign the returned value of bookingid from the JSON response to the static id variable.
         Test_APIBookings.static_var_id = booking_id
@@ -39,6 +41,7 @@ class Test_APIBookings:
         verify_http_codeStatus(response, 200)
         verify_key_forNotNullGreaterThanZero(booking_id)
         verify_responseTime(response)
+        print(response.json())
         # Return the tokenId and save it in the static variable for the token.
         return booking_id
 
@@ -53,10 +56,12 @@ class Test_APIBookings:
         # Call the static variable of id from within the class and assign it to a variable.
         bookingidGetfromPost = Test_APIBookings.static_var_id
         response = put_response(f"{url_base()}{url_booking_endpoint().format(bookingidGetfromPost)}",
-                                auth=None, headers=json_headers, payload=payloadTestdata_update(), in_json=False)
+                                auth=None, headers=json_headers, payload=payloadTestdata_faker_post_put(),
+                                in_json=False)
         # Verify the verifications by calling the commonVerifiaction file.
         verify_http_codeStatus(response, 200)
         verify_responseTime(response)
+        print(response.json())
 
     def test_patch_booking_TC4(self):
         # Call the static variable of id from within the class and assign it to a variable.
@@ -72,6 +77,7 @@ class Test_APIBookings:
         # Verify the verifications by calling the commonVerifiaction file.
         verify_http_codeStatus(response, 200)
         verify_responseTime(response)
+        print(response.json())
 
     def test_delete_booking_TC5(self):
         # Call the static variable of id from within the class and assign it to a variable.
@@ -90,6 +96,7 @@ class Test_APIBookings:
         # Verify the verifications by calling the commonVerifiaction file.
         verify_http_codeStatus(response, 200)
         verify_responseTime(response)
+        print(response.json())
 
     def tear_down(self):
         print("Complete")
